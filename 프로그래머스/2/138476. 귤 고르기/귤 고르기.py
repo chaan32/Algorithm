@@ -1,27 +1,22 @@
+# 귤 크기 별로 빈도를 계산해야 함 -> ok
+# 빈도를 내림차순으로 정렬 해야 함 ->
+
 def solution(k, tangerine):
-    # 각 귤 크기의 빈도를 저장할 딕셔너리 생성
-    d = {}
-    for size in tangerine:
-        if size in d:        # tangerine이 아니라 d에서 확인해야 함
-            d[size] += 1
-        else:
-            d[size] = 1
-
-    # 빈도를 내림차순으로 정렬
-    c = sorted(d.values(), reverse=True)
-
-    total = 0
-    kind_count = 0  # 종류 수 초기화
-    for count in c:
-        total += count
-        kind_count += 1
-        if total >= k:
-            break
-
-    return kind_count
-
-
-
+    tan = {}
+    for t in tangerine:
+        if t in tan : #값 추가
+            tan[t]+=1
+        else : #생성
+            tan[t]=1
+    tan_re = sorted(tan.values(), reverse=True)
+    kind = 0
+    cnt = 0
+    for i in tan_re:
+        kind+=1
+        cnt+=i
+        if cnt >= k:
+          break
+    return kind
 
 
 
